@@ -36,4 +36,19 @@ for( let i = 0; i < arr.length; i++) {
 } 
 return integer
 }
-console.log(numberFilter(['Ali', 3, 'Isaac', 5, 9]))
+//console.log(numberFilter(['Ali', 3, 'Isaac', 5, 9]))
+
+
+//SECTION - Write a function that takes an array with numbers and returns an array with elements mulitplied by 2
+
+//arrayByTwo([2,5,4])
+
+function multiTwo(arr) {
+    for( i = 0; i < arr.length; i++) {
+      arr[i] *= 2  
+    }
+    return arr
+}
+//one line
+const onelineArray = (arr) => arr.map(el => el * 2)
+console.log(multiTwo([2,5,4]))
