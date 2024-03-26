@@ -58,5 +58,43 @@ function dayWeek(day) {
 }
 console.log(dayWeek('03/26/2024'))
 
+//es6 date conversion
 const getDayNameTwo = day => new Date(day).toLocaleDateString('en-us', {weekday: 'short'})
 console.log(getDayNameTwo('03/26/2024'))
+
+// Create a function that can take a flat array and make it have nested arrays to
+// represent an incremental depth logger
+
+// EX. nestArray ([1,2,6,3]) -> [1,[2,[6,[3]]]]
+
+function incNestArray(nstarr) {
+    if(nstarr.length == 1) return nstarr
+    let temp = []
+    for(let i =0; i < nstarr.length; i++)
+        return [nstarr[0], incNestArray(nstarr.slice(1))]
+}
+console.log(incNestArray([1,2,6,3]))
+
+const nestArray2 = arr => arr.length === 1 ? arr : [arr[0], nestArray2(arr.slice(1))]
+console.log(nestArray2([1,2,3]))
+
+const nestArray3 = arr => (
+    arr.slice(0, -1).reduceRight((arr, e) => [e, arr], [arr.pop()])
+)
+console.log(nestArray3([1,2,3,4]))
+
+//create a function that takes two dates and returns the number of days between the first and second date.
+/* getNumbers(
+    new Date("March 26 2024"),
+    new Date("March 30 2024")
+)*/
+
+//output -> 4days
+
+//ES6 (provide inline comment for this code.)
+const getDays = (date1, date2) => {
+    return new Date(date2 - date1).getDate() - 1
+}
+console.log(getDays( 
+    new Date("March 26 2024"),
+    new Date("March 30 2024")))
