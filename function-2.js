@@ -42,3 +42,34 @@ console.log(sumMinArrays([
     [6,7,8,9,10],
     [11,12,13,14,15]
 ]))
+
+//ES6
+ const sumMinArraysnew = arr => arr.reduce((a,b) => a + Math.min(...b),0)
+
+ //Create a function that takes an array and returns duplicate numbers in a new array
+ 
+const ArraysDuplicateNumbers = arr => (
+    arr = [...new Set([...arr.filter(num =>
+        arr.indexOf(num) !== arr.lastIndexOf(num)
+        )])].sort((a,b) => a-b),
+        arr.length ? arr: null
+)
+
+//console.log(ArraysDuplicateNumbers([1,2,3,4,3,6,1]))
+
+
+
+ //let numbersArray = [1, 2, 3, 4, 2, 5, 3, 6, 7, 8, 4, 9, 10, 1];
+
+ function arraysDuplicateNumbers(arr) {
+    let duplicates = [];
+
+    for(let i = 0; i <arr.length; i++) {
+         for(let x = i + 1; x<arr.length; x++)
+                if (arr[x] === arr[i] && !duplicates.includes(arr[i])) {
+                    duplicates.push(arr[i]);
+             }
+        }
+        return duplicates
+    }
+console.log(arraysDuplicateNumbers([1, 2, 3, 4, 2, 5, 3, 6, 7, 8, 4, 9, 10, 1, 1]))
