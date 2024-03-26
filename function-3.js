@@ -38,3 +38,25 @@ function calNum3(num1, operator, num2) {
 }
 
 console.log(calNum3(20, "+", 4))
+
+//Create an array that rotates the values clockwise by one
+//the last value is going to be the first value
+//rotateArray([20, 15, 26, 22, 30]) -> ([30, 20, 15, 26, 22])
+
+function rotateArray(arr){
+    let lastValue = arr.pop()
+    arr.unshift(lastValue)
+    return arr
+}
+console.log(rotateArray([20, 15, 26, 22, 30]))
+// Create a function  that takes a given date (03/26/2024) return the day of the week as a string
+
+function dayWeek(day) {
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    let date = new Date()
+    return days[date.getDay()]
+}
+console.log(dayWeek('03/26/2024'))
+
+const getDayNameTwo = day => new Date(day).toLocaleDateString('en-us', {weekday: 'short'})
+console.log(getDayNameTwo('03/26/2024'))
